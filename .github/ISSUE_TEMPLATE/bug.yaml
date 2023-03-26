@@ -1,0 +1,9 @@
+name: Bug
+description: Create a bug report
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description of the bug
+      description: Always include a stack trace if there is one. Otherwise, the more information you can provide in terms of how to reproduce the problem, the more likely it'll be fixed.

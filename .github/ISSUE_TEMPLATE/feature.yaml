@@ -1,0 +1,9 @@
+name: Feature request
+description: Suggest a new feature
+labels: ["feature request"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description of the tag and his behavior
+      description: The more information you can provide for the feature request is welcome ^^.
