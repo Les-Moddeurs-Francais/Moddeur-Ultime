@@ -61,21 +61,4 @@ function getIndexOf(data, title){
     return index + 1
 }
 
-async function modifyNotifRole(roleId: string, middleMessage: string, member: GuildMember, interaction:ButtonInteraction) {
-    const role:Role = member.guild.roles.cache.get(roleId);
-    if (member.roles.cache.find(r => r.id === roleId)) {
-        await member.roles.remove(role)
-        await interaction.reply({
-            content: `Le rôle pour les notifications concernant ${middleMessage}, vous a été retiré !`,
-            ephemeral: true
-        });
-    } else {
-        await member.roles.add(role)
-        await interaction.reply({
-            content: `Le rôle pour les notifications concernant ${middleMessage}, vous a été ajouté !`,
-            ephemeral: true
-        })
-    }
-}
-
 export default event;
