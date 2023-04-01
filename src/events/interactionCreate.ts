@@ -30,7 +30,7 @@ const event: BotEvent = {
             await suggestionChannel.send({embeds: [embed]})
                 .then(msg => {
                     msg.react("✅")
-                    //msg.react("❎")
+                    msg.react("❎")
                     msg.startThread({
                         name: `${suggestionTitle}`,
                         autoArchiveDuration: 60 * 24 * 7,
