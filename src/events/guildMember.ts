@@ -4,7 +4,7 @@ import {APPROBATION_RULES_CHANNEL, NPE_ROLE} from "../utils/id";
 
 const event: BotEvent = {
     name: Events.GuildMemberUpdate,
-    once: true,
+    once: false,
     execute(oldMember: GuildMember, newMember: GuildMember) {
         if(newMember.pending === false && oldMember.pending === true){
             const npe = newMember.guild.roles.cache.get(NPE_ROLE);
