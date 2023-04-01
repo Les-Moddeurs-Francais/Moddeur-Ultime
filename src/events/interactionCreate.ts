@@ -1,6 +1,6 @@
 import {BotEvent} from "../types";
-import {ButtonInteraction, EmbedBuilder, Events, GuildMember, Interaction, Role, TextChannel} from "discord.js";
-import {DISCORD_ROLE, DOC_ROLE, FORGE_ROLE, MU_ROLE, SUGGESTION_CHANNEL} from "../utils/id";
+import {EmbedBuilder, Events, Interaction, TextChannel} from "discord.js";
+import {SUGGESTION_CHANNEL} from "../utils/id";
 import {rules} from "../utils/rules";
 
 const event: BotEvent = {
@@ -42,32 +42,6 @@ const event: BotEvent = {
 
         }
 
-        if(interaction.isButton()){
-            let buttonId:string = interaction.customId;
-            let member = interaction.member as GuildMember;
-
-            switch (buttonId){
-                case "documenation": {
-                    await modifyNotifRole(DOC_ROLE, "la documentation", member, interaction)
-                    break;
-                }
-                case "moddeur_ultime": {
-                    await modifyNotifRole(MU_ROLE, "le bot **Moddeur Ultime**", member, interaction)
-                    break;
-                }
-                case "forge": {
-                    await modifyNotifRole(FORGE_ROLE, "Minecraft Forge", member, interaction)
-                    break;
-                }
-                case "discord": {
-                    await modifyNotifRole(DISCORD_ROLE, "le serveur Discord **Les Moddeurs Français**", member, interaction)
-                    break;
-                }
-                default:
-                    interaction.reply({content: "Aucun rôle n'a été modifié" , ephemeral: true})
-            }
-        }
-
         if(interaction.isAutocomplete()){
             if(interaction.commandName == "rules"){
                 const focusedValue = interaction.options.getFocused();
@@ -85,23 +59,6 @@ function getIndexOf(data, title){
         return item.title === title
     });
     return index + 1
-}
-
-async function modifyNotifRole(roleId: string, middleMessage: string, member: GuildMember, interaction:ButtonInteraction) {
-    const role:Role = member.guild.roles.cache.get(roleId);
-    if (member.roles.cache.find(r => r.id === roleId)) {
-        await member.roles.remove(role)
-        await interaction.reply({
-            content: `Le rôle pour les notifications concernant ${middleMessage}, vous a été retiré !`,
-            ephemeral: true
-        });
-    } else {
-        await member.roles.add(role)
-        await interaction.reply({
-            content: `Le rôle pour les notifications concernant ${middleMessage}, vous a été ajouté !`,
-            ephemeral: true
-        })
-    }
 }
 
 export default event;
