@@ -1,6 +1,6 @@
 import {BotEvent} from "../types";
 import {ButtonInteraction, EmbedBuilder, Events, GuildMember, Interaction, Role, TextChannel} from "discord.js";
-import {DISCORD_ROLE, DOC_ROLE, FORGE_ROLE, MU_ROLE, SUGGESTION_CHANNEL} from "../utils/id";
+import {SUGGESTION_CHANNEL} from "../utils/id";
 import {rules} from "../utils/rules";
 
 const event: BotEvent = {
@@ -40,32 +40,6 @@ const event: BotEvent = {
 
             await interaction.reply({ content: "Votre suggestion a bien été prise en compte", ephemeral: true });
 
-        }
-
-        if(interaction.isButton()){
-            let buttonId:string = interaction.customId;
-            let member = interaction.member as GuildMember;
-
-            switch (buttonId){
-                case "documenation": {
-                    await modifyNotifRole(DOC_ROLE, "la documentation", member, interaction)
-                    break;
-                }
-                case "moddeur_ultime": {
-                    await modifyNotifRole(MU_ROLE, "le bot **Moddeur Ultime**", member, interaction)
-                    break;
-                }
-                case "forge": {
-                    await modifyNotifRole(FORGE_ROLE, "Minecraft Forge", member, interaction)
-                    break;
-                }
-                case "discord": {
-                    await modifyNotifRole(DISCORD_ROLE, "le serveur Discord **Les Moddeurs Français**", member, interaction)
-                    break;
-                }
-                default:
-                    interaction.reply({content: "Aucun rôle n'a été modifié" , ephemeral: true})
-            }
         }
 
         if(interaction.isAutocomplete()){
