@@ -1,5 +1,5 @@
 import {BotEvent} from "../types";
-import {ButtonInteraction, EmbedBuilder, Events, GuildMember, Interaction, Role, TextChannel} from "discord.js";
+import {EmbedBuilder, Events, Interaction, TextChannel} from "discord.js";
 import {SUGGESTION_CHANNEL} from "../utils/id";
 import {rules} from "../utils/rules";
 
