@@ -5,7 +5,7 @@ import {REPORT_PING_CHANNEL} from "../utils/id";
 
 const event: BotEvent = {
     name: Events.MessageCreate,
-    once: true,
+    once: false,
     execute(message: Message) {
 
         if((message.mentions.users.find(user => user.id === '569959711164727306') || message.mentions.users.find(user => user.id === '188763699778027521')) && !message.author.bot && !message.member.roles.cache.find(r => r.name === 'Dev Master' || r.name === 'Modérateur')){
