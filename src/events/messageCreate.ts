@@ -24,7 +24,7 @@ const event: BotEvent = {
                 .setColor("#15ff67")
                 .setTitle(`Message contenant la mention`)
                 .setDescription(message.content);
-            reportMentionChannel.send({ content : `${message.author} a mentionné l'un d'entre vous !`,embeds: [reportPingEmbed] })
+            reportMentionChannel.send({ content : `${message.author} a mentionné l'un d'entre vous dans ce message, ${message.url} !`,embeds: [reportPingEmbed] })
         }
     },
 }
