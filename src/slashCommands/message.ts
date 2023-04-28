@@ -1,4 +1,4 @@
-import {SlashCommandBuilder} from "discord.js"
+import {PermissionsBitField, SlashCommandBuilder} from "discord.js"
 import {SlashCommand} from "../types";
 
 export const command: SlashCommand = {
@@ -11,7 +11,8 @@ export const command: SlashCommand = {
                 .setName("contenu")
                 .setDescription("Contenu du message à envoyer")
                 .setRequired(true)
-        }),
+        })
+        .setDefaultMemberPermissions(PermissionsBitField.Flags.Administrator),
     execute: async (interaction) => {
         await interaction.channel.send({
             content: `${interaction.options.getString("contenu")}`
