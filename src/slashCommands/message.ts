@@ -22,7 +22,7 @@ export const command: SlashCommand = {
         const content = interaction.options.getString("contenu")
         const isSilent = interaction.options.getBoolean("silencieux")
 
-        await interaction.channel.send({ content: 'Hello', flags: [MessageFlags.SuppressNotifications] });
+        await interaction.channel.send({ content: `${content}`, flags: isSilent ? [MessageFlags.SuppressNotifications] : [] });
         await interaction.reply({
             content: `Le message a été envoyé !`,
             ephemeral: true
