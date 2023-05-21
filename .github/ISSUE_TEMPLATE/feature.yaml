@@ -5,5 +5,5 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: Description of the tag and his behavior
+      label: Description of the feature
       description: The more information you can provide for the feature request is welcome ^^.
