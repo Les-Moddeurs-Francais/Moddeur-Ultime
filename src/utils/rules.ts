@@ -1,5 +1,7 @@
+import {bold, channelMention} from "discord.js";
+
 let rules = {
-    title: ":scroll: Règlement du serveur **Les Moddeurs Francais**",
+    title: `:scroll: Règlement du serveur ${bold("Les Moddeurs Francais")}`,
     rules: [
         {
             title: "Spam",
@@ -11,7 +13,7 @@ let rules = {
         },
         {
             title: "Spam des roles et mention des admins",
-            text:"Ne pas spammer les **Les Moddeurs Français** ni les **Dev Master** **et encore moins mentionner <@188763699778027521> ou <@569959711164727306> :rage: !** Si vous avez une question, posez la dans les tchat et un membre du staff ou de la communauté vous répondra avec un peu de patience."
+            text:`Ne pas spammer les ${bold("Les Moddeurs Français")} ni les ${bold("Dev Master")} ${bold("et encore moins mentionner <@188763699778027521> ou <@569959711164727306> :rage: !")} Si vous avez une question, posez la dans les tchat et un membre du staff ou de la communauté vous répondra avec un peu de patience.`
         },
         {
             title: "NSFW",
@@ -19,7 +21,7 @@ let rules = {
         },
         {
             title: "GIF",
-            text:"Ne pas envoyer de gifs ou vidéos (si ils/elles ne sont pas nécessaires/utiles) dans un tchat autre que <#700091019919884387>."
+            text:`Ne pas envoyer de gifs ou vidéos (si ils/elles ne sont pas nécessaires/utiles) dans un tchat autre que ${channelMention("700091019919884387")}.`
         },
         {
             title: "Insultes textuelles",
