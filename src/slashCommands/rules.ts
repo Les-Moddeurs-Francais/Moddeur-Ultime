@@ -3,9 +3,9 @@ import {SlashCommand} from "../types";
 import {rules} from "../utils/rules";
 
 export const command: SlashCommand = {
-    name: 'rules',
+    name: 'règles',
     data: new SlashCommandBuilder()
-        .setName('rules')
+        .setName('règles')
         .setDescription("Permet d'obtenir et d'afficher une règle spécifique selon son numéro")
         .addIntegerOption((option) => {
             return option

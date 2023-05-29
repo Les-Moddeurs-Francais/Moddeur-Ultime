@@ -43,7 +43,7 @@ const event: BotEvent = {
         }
 
         if(interaction.isAutocomplete()){
-            if(interaction.commandName == "rules"){
+            if(interaction.commandName == "règles"){
                 const focusedValue = interaction.options.getFocused();
                 const filtered = rules.rules.filter(rule => rule.title.toString().includes(focusedValue));
                 await interaction.respond(
