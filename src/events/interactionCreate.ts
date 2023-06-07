@@ -8,7 +8,15 @@ const event: BotEvent = {
     once: false,
     async execute(interaction: Interaction) {
         if (interaction.isChatInputCommand()){
-            const command = interaction.client.slashCommands.get(interaction.commandName);
+            const command = interaction.client.applicationCommands.get(interaction.commandName);
+
+            if (!command) return;
+
+            await command.execute(interaction);
+        }
+
+        if (interaction.isContextMenuCommand()){
+            const command = interaction.client.applicationCommands.get(interaction.commandName);
 
             if (!command) return;
 

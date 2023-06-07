@@ -1,9 +1,9 @@
-import {EmbedBuilder, SlashCommandBuilder} from "discord.js"
-import {AlgoliaHit, SlashCommand} from "../types";
+import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
+import {AlgoliaHit, ApplicationCommand} from "../types";
 import algoliasearch from "algoliasearch";
 import parser from "html-metadata-parser";
 
-export const command: SlashCommand = {
+export const command: ApplicationCommand = {
     name: 'doc',
     data: new SlashCommandBuilder()
         .setName('doc')
@@ -19,7 +19,7 @@ export const command: SlashCommand = {
                 .setName("version")
                 .setDescription("Version de Minecraft")
         }),
-    async execute(interaction) {
+    async execute(interaction: ChatInputCommandInteraction) {
         let search = interaction.options.get('search').value as string;
         let minecraftVersion = interaction.options.getString("version")
 

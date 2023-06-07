@@ -1,12 +1,12 @@
-import {EmbedBuilder, SlashCommandBuilder} from "discord.js"
-import { SlashCommand } from "../types";
+import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
+import {ApplicationCommand} from "../types";
 
-export const command: SlashCommand = {
+export const command: ApplicationCommand = {
     name: 'ask',
     data: new SlashCommandBuilder()
         .setName('ask')
         .setDescription("Try and see ^^ !"),
-    async execute(interaction) {
+    async execute(interaction: ChatInputCommandInteraction) {
         await interaction.reply({
             embeds: [
                 new EmbedBuilder()

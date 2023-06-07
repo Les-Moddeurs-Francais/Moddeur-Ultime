@@ -1,7 +1,7 @@
-import {EmbedBuilder, SlashCommandBuilder} from "discord.js"
-import {ForgeVersions, SlashCommand} from "../types";
+import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
+import {ApplicationCommand, ForgeVersions} from "../types";
 
-export const command: SlashCommand = {
+export const command: ApplicationCommand = {
     name: 'forge',
     data: new SlashCommandBuilder()
         .setName('forge')
@@ -12,7 +12,7 @@ export const command: SlashCommand = {
                 .setDescription("Version de Minecraft")
                 .setRequired(true)
         }),
-    async execute(interaction) {
+    async execute(interaction: ChatInputCommandInteraction) {
         const minecraftVersion = interaction.options.get('version').value as string;
 
         let forgeVersionsJson = await fetch("https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json")

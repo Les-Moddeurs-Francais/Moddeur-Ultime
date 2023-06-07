@@ -1,6 +1,5 @@
 import * as dotenv from 'dotenv';
-import {Client, Collection, GatewayIntentBits, Partials} from 'discord.js';
-import {SlashCommand} from './types';
+import {ApplicationCommand, Client, Collection, GatewayIntentBits, Partials} from 'discord.js';
 import {join} from 'path';
 import {readdirSync} from 'fs';
 
@@ -18,7 +17,7 @@ const client = new Client({
   ]
 });
 
-client.slashCommands = new Collection<string, SlashCommand>();
+client.applicationCommands = new Collection<string, ApplicationCommand>();
 
 const handlersDir = join(__dirname, "./handlers");
 
