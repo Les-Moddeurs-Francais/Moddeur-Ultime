@@ -29,7 +29,7 @@ declare global {
 
 declare module "discord.js" {
     export interface Client {
-        applicationCommands: Collection<string, AplpicationCommand>
+        applicationCommands: Collection<string, ApplicationCommand>
     }
 }
 

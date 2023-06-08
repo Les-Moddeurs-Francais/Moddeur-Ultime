@@ -1,7 +1,8 @@
 import * as dotenv from 'dotenv';
-import {ApplicationCommand, Client, Collection, GatewayIntentBits, Partials} from 'discord.js';
+import {Client, Collection, GatewayIntentBits, Partials} from 'discord.js';
 import {join} from 'path';
 import {readdirSync} from 'fs';
+import {ApplicationCommand} from "./types";
 
 dotenv.config();
 
