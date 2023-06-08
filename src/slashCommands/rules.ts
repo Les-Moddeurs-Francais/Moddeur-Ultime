@@ -1,8 +1,8 @@
 import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
-import {ApplicationCommand} from "../types";
+import {BotApplicationCommand} from "../types";
 import {rules} from "../utils/rules";
 
-export const command: ApplicationCommand = {
+export const command: BotApplicationCommand = {
     name: 'règles',
     data: new SlashCommandBuilder()
         .setName('règles')

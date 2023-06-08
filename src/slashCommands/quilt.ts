@@ -1,7 +1,7 @@
 import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
-import {ApplicationCommand, LoaderVersion, MappingsVersion, ModrinthModVersion} from "../types";
+import {BotApplicationCommand, LoaderVersion, MappingsVersion, ModrinthModVersion} from "../types";
 
-export const command: ApplicationCommand = {
+export const command: BotApplicationCommand = {
     name: 'quilt',
     data: new SlashCommandBuilder()
         .setName('quilt')

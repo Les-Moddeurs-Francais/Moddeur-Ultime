@@ -1,7 +1,7 @@
 import {ChatInputCommandInteraction, MessageFlags, PermissionsBitField, SlashCommandBuilder} from "discord.js"
-import {ApplicationCommand} from "../types";
+import {BotApplicationCommand} from "../types";
 
-export const command: ApplicationCommand = {
+export const command: BotApplicationCommand = {
     name: 'message',
     data: new SlashCommandBuilder()
         .setName("message")

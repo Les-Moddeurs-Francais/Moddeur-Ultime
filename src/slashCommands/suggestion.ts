@@ -6,9 +6,9 @@ import {
     TextInputBuilder,
     TextInputStyle
 } from "discord.js"
-import {ApplicationCommand} from "../types";
+import {BotApplicationCommand} from "../types";
 
-export const command: ApplicationCommand = {
+export const command: BotApplicationCommand = {
     name: 'suggestion',
     data: new SlashCommandBuilder()
         .setName("suggestion")

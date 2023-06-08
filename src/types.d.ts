@@ -12,7 +12,7 @@ export interface BotEvent {
     async execute: (...args?) => void
 }
 
-export interface ApplicationCommand {
+export interface BotApplicationCommand {
     name: string,
     data: SlashCommandBuilder | ContextMenuCommandBuilder | any,
     async execute: (interaction : ChatInputCommandInteraction | ContextMenuCommandInteraction) => Promise<void>,
@@ -29,7 +29,7 @@ declare global {
 
 declare module "discord.js" {
     export interface Client {
-        applicationCommands: Collection<string, ApplicationCommand>
+        applicationCommands: Collection<string, BotApplicationCommand>
     }
 }
 

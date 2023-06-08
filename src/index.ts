@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 import {Client, Collection, GatewayIntentBits, Partials} from 'discord.js';
 import {join} from 'path';
 import {readdirSync} from 'fs';
-import {ApplicationCommand} from "./types";
+import {BotApplicationCommand} from "./types";
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ const client = new Client({
   ]
 });
 
-client.applicationCommands = new Collection<string, ApplicationCommand>();
+client.applicationCommands = new Collection<string, BotApplicationCommand>();
 
 const handlersDir = join(__dirname, "./handlers");
 

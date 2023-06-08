@@ -4,9 +4,9 @@ import {
     ContextMenuCommandInteraction,
     PermissionsBitField
 } from "discord.js"
-import {ApplicationCommand} from "../types";
+import {BotApplicationCommand} from "../types";
 
-export const command: ApplicationCommand = {
+export const command: BotApplicationCommand = {
     name: 'lol',
     data: new ContextMenuCommandBuilder()
         .setName("lol")

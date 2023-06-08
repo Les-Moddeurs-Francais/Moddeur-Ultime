@@ -1,9 +1,9 @@
 import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
-import {AlgoliaHit, ApplicationCommand} from "../types";
+import {AlgoliaHit, BotApplicationCommand} from "../types";
 import algoliasearch from "algoliasearch";
 import parser from "html-metadata-parser";
 
-export const command: ApplicationCommand = {
+export const command: BotApplicationCommand = {
     name: 'doc',
     data: new SlashCommandBuilder()
         .setName('doc')
