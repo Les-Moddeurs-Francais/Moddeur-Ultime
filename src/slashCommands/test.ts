@@ -1,20 +1,35 @@
 import {
+    ActionRowBuilder,
     ApplicationCommandType,
     ContextMenuCommandBuilder,
     ContextMenuCommandInteraction,
-    PermissionsBitField
+    ModalBuilder,
+    PermissionsBitField,
+    TextInputBuilder,
+    TextInputStyle
 } from "discord.js"
 import {BotApplicationCommand} from "../types";
 
 export const command: BotApplicationCommand = {
-    name: 'lol',
+    name: 'Accepter la suggestion',
     data: new ContextMenuCommandBuilder()
-        .setName("lol")
+        .setName("Accepter la suggestion")
         .setType(ApplicationCommandType.Message)
         .setDefaultMemberPermissions(PermissionsBitField.Flags.Administrator),
     execute: async (interaction: ContextMenuCommandInteraction) => {
-        await interaction.reply({
-            content: `${interaction.client.ws.ping}ms!`
-        })
+
+        const acceptReason = new TextInputBuilder()
+            .setCustomId('reason')
+            .setLabel('Raison')
+            .setStyle(TextInputStyle.Paragraph);
+
+        const reasonRow = new ActionRowBuilder<TextInputBuilder>().addComponents(acceptReason);
+
+        const acceptSuggestionModal = new ModalBuilder()
+            .setCustomId("acceptSuggestion")
+            .setTitle("Accepter la suggestion")
+            .setComponents(reasonRow);
+
+        await interaction.showModal(acceptSuggestionModal);
     }
 }
