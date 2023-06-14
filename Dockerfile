@@ -1,4 +1,4 @@
-FROM node:20.0.0-alpine as development
+FROM node:20.3.0-alpine as development
 
 WORKDIR /usr/src/bot
 
@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node:20.0.0-alpine as production
+FROM node:20.3.0-alpine as production
 
 ENV NODE_ENV production
 
