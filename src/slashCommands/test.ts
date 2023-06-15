@@ -3,6 +3,8 @@ import {
     ApplicationCommandType,
     ContextMenuCommandBuilder,
     ContextMenuCommandInteraction,
+    EmbedBuilder,
+    MessageContextMenuCommandInteraction,
     ModalBuilder,
     PermissionsBitField,
     TextInputBuilder,
@@ -35,8 +37,24 @@ export const command: BotApplicationCommand = {
         const filter = (interaction) => interaction.customId === 'acceptSuggestion';
 
         interaction.awaitModalSubmit({ filter, time: 15_000 })
-            .then(async interaction => {
-                await interaction.reply({content: "La suggestion a été approuvée !", ephemeral: true});
+            .then(async interactionTwo => {
+                const message  = (<MessageContextMenuCommandInteraction>interaction).targetMessage;
+
+                if(message.embeds.length === 1){
+                    console.log(message.embeds[0].title)
+
+                    const embed = new EmbedBuilder()
+                        .setTitle(`${message.embeds[0].title}`)
+                        .setColor("#15ff67")
+                        .setAuthor({ name: `${message.embeds[0].author.name}`, iconURL: `${message.embeds[0].author.iconURL}` })
+                        .setTimestamp()
+                        .setDescription(`${message.embeds[0].description}`)
+                        .addFields({ name: `Raison de ${interaction.member.user.username}`, value: `${interactionTwo.fields.getTextInputValue("reason")}` },)
+
+                    await message.edit({embeds: [embed]})
+
+                    await interactionTwo.reply({content: "La suggestion a été approuvée !", ephemeral: true});
+                }
             })
             .catch(console.error);
     }

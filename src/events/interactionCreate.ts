@@ -34,7 +34,6 @@ const event: BotEvent = {
                 const suggestionDescription = interaction.fields.getTextInputValue("suggestion_description");
                 const embed = new EmbedBuilder()
                     .setTitle(`${suggestionTitle}`)
-                    .setColor("#15ff67")
                     .setAuthor({ name: `${userName}`, iconURL: `${userAvatarUrl}` })
                     .setTimestamp()
                     .setDescription(`${suggestionDescription}`)
