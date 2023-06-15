@@ -51,6 +51,9 @@ export const command: BotApplicationCommand = {
 
                     await message.edit({embeds: [embed]})
 
+                    if(message.hasThread)
+                        await message.thread.setArchived(true)
+
                     await interactionTwo.reply({content: "La suggestion a été approuvée !", ephemeral: true});
                 }
             })
