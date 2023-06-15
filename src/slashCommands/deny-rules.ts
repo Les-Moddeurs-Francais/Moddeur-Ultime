@@ -27,12 +27,12 @@ export const command: BotApplicationCommand = {
 
         const reasonRow = new ActionRowBuilder<TextInputBuilder>().addComponents(acceptReason);
 
-        const acceptSuggestionModal = new ModalBuilder()
+        const denySuggestionModal = new ModalBuilder()
             .setCustomId("denySuggestion")
             .setTitle("Refuser la suggestion")
             .setComponents(reasonRow);
 
-        await interaction.showModal(acceptSuggestionModal);
+        await interaction.showModal(denySuggestionModal);
 
         const filter = (interaction) => interaction.customId === 'denySuggestion';
 
