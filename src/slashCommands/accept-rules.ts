@@ -41,8 +41,6 @@ export const command: BotApplicationCommand = {
                 const message  = (<MessageContextMenuCommandInteraction>interaction).targetMessage;
 
                 if(message.embeds.length === 1){
-                    console.log(message.embeds[0].title)
-
                     const embed = new EmbedBuilder()
                         .setTitle(`${message.embeds[0].title}`)
                         .setColor("#15ff67")
