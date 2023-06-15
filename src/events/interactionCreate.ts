@@ -51,10 +51,7 @@ const event: BotEvent = {
 
                 await interaction.reply({ content: "Votre suggestion a bien été prise en compte", ephemeral: true });
 
-            } else if (interaction.customId === 'acceptSuggestion'){
-
             }
-
         }
 
         if(interaction.isAutocomplete()){

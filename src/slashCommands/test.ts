@@ -31,5 +31,13 @@ export const command: BotApplicationCommand = {
             .setComponents(reasonRow);
 
         await interaction.showModal(acceptSuggestionModal);
+
+        const filter = (interaction) => interaction.customId === 'acceptSuggestion';
+
+        interaction.awaitModalSubmit({ filter, time: 15_000 })
+            .then(async interaction => {
+                await interaction.reply({content: "La suggestion a été approuvée !", ephemeral: true});
+            })
+            .catch(console.error);
     }
 }
