@@ -1,7 +1,7 @@
-import {EmbedBuilder, SlashCommandBuilder} from "discord.js"
-import {LoaderVersion, MappingsVersion, ModrinthModVersion, SlashCommand} from "../types";
+import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
+import {BotApplicationCommand, LoaderVersion, MappingsVersion, ModrinthModVersion} from "../types";
 
-export const command: SlashCommand = {
+export const command: BotApplicationCommand = {
     name: 'fabric',
     data: new SlashCommandBuilder()
         .setName('fabric')
@@ -12,7 +12,7 @@ export const command: SlashCommand = {
                 .setDescription("Version de Minecraft")
                 .setRequired(true)
         }),
-    async execute(interaction) {
+    async execute(interaction: ChatInputCommandInteraction) {
         const minecraftVersion = interaction.options.get('version').value as string;
 
         let fabricYarnVersionsJson = await fetch(`https://meta.fabricmc.net/v2/versions/yarn/${minecraftVersion}`)

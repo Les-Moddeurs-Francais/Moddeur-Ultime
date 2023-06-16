@@ -1,7 +1,7 @@
-import {MessageFlags, PermissionsBitField, SlashCommandBuilder} from "discord.js"
-import {SlashCommand} from "../types";
+import {ChatInputCommandInteraction, MessageFlags, PermissionsBitField, SlashCommandBuilder} from "discord.js"
+import {BotApplicationCommand} from "../types";
 
-export const command: SlashCommand = {
+export const command: BotApplicationCommand = {
     name: 'message',
     data: new SlashCommandBuilder()
         .setName("message")
@@ -18,7 +18,7 @@ export const command: SlashCommand = {
                 .setDescription("Définit si le message est silencieux")
         })
         .setDefaultMemberPermissions(PermissionsBitField.Flags.Administrator),
-    execute: async (interaction) => {
+    execute: async (interaction: ChatInputCommandInteraction) => {
         const content = interaction.options.getString("contenu")
         const isSilent = interaction.options.getBoolean("silencieux")
 

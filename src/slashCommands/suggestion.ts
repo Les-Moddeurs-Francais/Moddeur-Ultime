@@ -1,12 +1,19 @@
-import {ActionRowBuilder, ModalBuilder, SlashCommandBuilder, TextInputBuilder, TextInputStyle} from "discord.js"
-import { SlashCommand } from "../types";
+import {
+    ActionRowBuilder,
+    ChatInputCommandInteraction,
+    ModalBuilder,
+    SlashCommandBuilder,
+    TextInputBuilder,
+    TextInputStyle
+} from "discord.js"
+import {BotApplicationCommand} from "../types";
 
-export const command: SlashCommand = {
+export const command: BotApplicationCommand = {
     name: 'suggestion',
     data: new SlashCommandBuilder()
         .setName("suggestion")
         .setDescription("Permet de nous faire part de vos suggestions grace à une interface"),
-    execute: async (interaction) => {
+    execute: async (interaction: ChatInputCommandInteraction) => {
         const suggestionTitle = new TextInputBuilder()
             .setCustomId("suggestion_title")
             .setLabel("Titre de la suggestion")

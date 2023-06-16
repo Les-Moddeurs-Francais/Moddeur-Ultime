@@ -1,8 +1,8 @@
-import {EmbedBuilder, SlashCommandBuilder} from "discord.js"
-import {SlashCommand} from "../types";
+import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
+import {BotApplicationCommand} from "../types";
 import {rules} from "../utils/rules";
 
-export const command: SlashCommand = {
+export const command: BotApplicationCommand = {
     name: 'règles',
     data: new SlashCommandBuilder()
         .setName('règles')
@@ -16,7 +16,7 @@ export const command: SlashCommand = {
                 .setMaxValue(rules.rules.length)
                 .setAutocomplete(true)
         }),
-    async execute(interaction) {
+    async execute(interaction: ChatInputCommandInteraction) {
         const ruleNumber = interaction.options.get('numéro').value as number;
 
         await interaction.reply({

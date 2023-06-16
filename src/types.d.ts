@@ -1,4 +1,10 @@
-import {ChatInputCommandInteraction, Collection, SlashCommandBuilder} from "discord.js"
+import {
+    ChatInputCommandInteraction,
+    Collection,
+    ContextMenuCommandBuilder,
+    ContextMenuCommandInteraction,
+    SlashCommandBuilder
+} from "discord.js"
 
 export interface BotEvent {
     name: string,
@@ -6,10 +12,10 @@ export interface BotEvent {
     async execute: (...args?) => void
 }
 
-export interface SlashCommand {
+export interface BotApplicationCommand {
     name: string,
-    data: SlashCommandBuilder | any,
-    async execute: (interaction : ChatInputCommandInteraction) => Promise<void>,
+    data: SlashCommandBuilder | ContextMenuCommandBuilder | any,
+    async execute: (interaction : ChatInputCommandInteraction | ContextMenuCommandInteraction) => Promise<void>,
 }
 
 declare global {
@@ -23,7 +29,7 @@ declare global {
 
 declare module "discord.js" {
     export interface Client {
-        slashCommands: Collection<string, SlashCommand>
+        applicationCommands: Collection<string, BotApplicationCommand>
     }
 }
 

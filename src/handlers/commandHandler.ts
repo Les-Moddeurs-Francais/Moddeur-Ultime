@@ -1,7 +1,7 @@
 import {Client, REST, Routes} from "discord.js";
 import {readdirSync} from "fs";
 import {join} from "path";
-import {SlashCommand} from "../types";
+import {BotApplicationCommand} from "../types";
 import {GUILD_ID} from "../utils/id";
 
 module.exports = async (client: Client) => {
@@ -11,9 +11,9 @@ module.exports = async (client: Client) => {
     readdirSync(slashCommandsDir).forEach(file => {
         if (!file.endsWith(".js")) return;
 
-        const command: SlashCommand = require(`${slashCommandsDir}/${file}`).command;
+        const command: BotApplicationCommand = require(`${slashCommandsDir}/${file}`).command;
 
-        client.slashCommands.set(command.name, command);
+        client.applicationCommands.set(command.name, command);
         body.push(command.data.toJSON());
     });
 
