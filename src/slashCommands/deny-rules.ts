@@ -45,7 +45,7 @@ export const command: BotApplicationCommand = {
                         .setTitle(`${message.embeds[0].title}`)
                         .setColor("#FF4922")
                         .setAuthor({ name: `${message.embeds[0].author.name}`, iconURL: `${message.embeds[0].author.iconURL}` })
-                        .setTimestamp()
+                        .setTimestamp(new Date(message.embeds[0].timestamp))
                         .setDescription(`${message.embeds[0].description}`)
                         .addFields({ name: `Raison de ${interaction.member.user.username}`, value: `${interactionTwo.fields.getTextInputValue("reason")}` },)
 
@@ -54,7 +54,7 @@ export const command: BotApplicationCommand = {
                     if(message.hasThread)
                         await message.thread.setArchived(true)
 
-                    await interactionTwo.reply({content: "La suggestion a été approuvée !", ephemeral: true});
+                    await interactionTwo.reply({content: "La suggestion a été refusée !", ephemeral: true});
                 }
             })
             .catch(console.error);
