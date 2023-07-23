@@ -30,7 +30,7 @@ export const command: BotApplicationCommand = {
                 .setColor("#15ff67")
 
             if(quiltApiVersions.length > 0)
-                resultEmbed.addFields({name: `Dernière version de Quiled Fabric API`, value: `\`${quiltApiVersions[0].version_number}\``, inline:false})
+                resultEmbed.addFields({name: `Dernière version de Quilted Fabric API`, value: `\`${quiltApiVersions[0].version_number}\``, inline:false})
 
             if(quiltMappingsVersions.length > 0)
                 resultEmbed.addFields({name: `Dernière version des mappings`, value: `\`${quiltMappingsVersions[0].version}\``, inline:false})
