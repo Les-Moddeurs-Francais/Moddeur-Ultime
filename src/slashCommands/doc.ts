@@ -91,7 +91,7 @@ export const command: BotApplicationCommand = {
                             color: 0xFF4922
                         })
 
-                    await interaction.followUp({embeds: [embed]});
+                    await interaction.reply({embeds: [embed]});
                 }
             }
         });
