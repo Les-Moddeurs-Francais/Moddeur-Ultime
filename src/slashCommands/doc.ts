@@ -61,7 +61,7 @@ export const command: BotApplicationCommand = {
                 })
             }else {
                 const pages = hits.filter(pages => {
-                    return !pages.url.includes("#") && !pages.url.includes("category")
+                    return !pages.url.includes("#")
                 });
 
                 if(pages.length > 0){
