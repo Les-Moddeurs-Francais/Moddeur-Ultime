@@ -27,7 +27,7 @@ const event: BotEvent = {
 
             if(interaction.customId === 'suggestion'){
 
-                const userName = interaction.user.username
+                const userName = interaction.user.displayName
                 const userAvatarUrl = interaction.user.displayAvatarURL()
                 const suggestionChannel = interaction.client.channels.cache.get(SUGGESTION_CHANNEL) as TextChannel;
                 const suggestionTitle = interaction.fields.getTextInputValue("suggestion_title");
