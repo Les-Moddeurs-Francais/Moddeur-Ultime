@@ -1,7 +1,7 @@
-import {BotEvent} from "../types";
-import {ButtonStyle, Client, EmbedBuilder, Events, TextChannel} from "discord.js";
-import {rules} from "../utils/rules";
-import {RULES_CHANNEL, RULES_MESSAGE} from "../utils/id";
+import { Client, EmbedBuilder, Events, TextChannel } from "discord.js";
+import { BotEvent } from "../types";
+import { RULES_CHANNEL, RULES_MESSAGE } from "../utils/id";
+import { rules } from "../utils/rules";
 
 const event: BotEvent = {
     name: Events.ClientReady,

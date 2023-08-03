@@ -4,4 +4,4 @@ Moddeur Ultime is the Discord bot of [Les Moddeurs Francais](https://discord.les
 
 ## Contributing
 
-Read our [contributing guide](CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements.
+Read our [contributing guide](CONTRIBUTING.md) to learn about our development process, how to propose bug fixes and improvements.

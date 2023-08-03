@@ -11,10 +11,12 @@ We are open to all contributions whether they are code or bug reports ^^.
 3. To start the bot, run `npm run dev` (after setup of the `.env` file in the [next section](#files)).
 
 ## Files
+
 To test the bot, you need to setup a file called `.env` with test bot
 
 Structure of the `.env` file :
-```
+
+```text
 DISCORD_TOKEN=
 CLIENT_ID=
 
