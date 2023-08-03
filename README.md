@@ -1,6 +1,6 @@
 # Moddeur Ultime
 
-Moddeur Ultime is the Discord bot of [Les Moddeurs Francais](https://discord.lesmoddeursfrancais.com) server.
+Moddeur Ultime is the Discord bot of [Les Moddeurs Francais](https://discord.lesmoddeursfrancais.fr) server.
 
 ## Contributing
 

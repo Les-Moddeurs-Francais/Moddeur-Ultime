@@ -34,7 +34,8 @@ declare module "discord.js" {
 }
 
 export interface ForgeVersions {
-    promos:   { [key: string]: string };
+    isSnapshot: boolean;
+    version: string;
 }
 
 export interface MappingsVersion {

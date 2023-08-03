@@ -61,7 +61,7 @@ export const command: BotApplicationCommand = {
                 })
             }else {
                 const pages = hits.filter(pages => {
-                    return !pages.url.includes("#") && !pages.url.includes("category")
+                    return !pages.url.includes("#")
                 });
 
                 if(pages.length > 0){
@@ -91,7 +91,7 @@ export const command: BotApplicationCommand = {
                             color: 0xFF4922
                         })
 
-                    await interaction.followUp({embeds: [embed]});
+                    await interaction.reply({embeds: [embed]});
                 }
             }
         });

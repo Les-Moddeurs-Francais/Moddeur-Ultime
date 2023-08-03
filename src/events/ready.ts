@@ -13,6 +13,7 @@ const event: BotEvent = {
 
         let rulesEmbed = new EmbedBuilder()
             .setTitle(rules.title)
+            .setDescription(rules.description)
             .setColor("#15ff67");
 
         for (let i = 0; i < rules.rules.length; i++){
@@ -21,7 +22,7 @@ const event: BotEvent = {
 
         rulesChannel.messages.fetch(RULES_MESSAGE)
             .then(message => {
-                if((rulesEmbed.toJSON().title !== message.embeds[0].title) || (JSON.stringify(rulesEmbed.toJSON().fields) !== JSON.stringify(message.embeds[0].fields)))
+                if((rulesEmbed.toJSON().title !== message.embeds[0].title) || (rulesEmbed.toJSON().description !== message.embeds[0].description) || (JSON.stringify(rulesEmbed.toJSON().fields) !== JSON.stringify(message.embeds[0].fields)))
                     message.edit({content: "", embeds: [rulesEmbed]});
             });
     },
