@@ -4,7 +4,7 @@ import {BotApplicationCommand, ForgeVersions} from "../types";
 export const command: BotApplicationCommand = {
     name: 'neoforge',
     data: new SlashCommandBuilder()
-        .setName('forge')
+        .setName('neoforge')
         .setDescription("Retourne la version la plus récente de NeoForge pour une version de Minecraft donnée")
         .addStringOption((option) => {
             return option
@@ -34,7 +34,7 @@ export const command: BotApplicationCommand = {
             await interaction.reply({
                 embeds: [
                     new EmbedBuilder()
-                        .setTitle("Cette version n'existe pas ou n'a pas encore été publiée par Forge !")
+                        .setTitle(`La version ${minecraftVersion} n'existe pas ou n'a pas encore été publiée par NeoForge !`)
                         .setColor("#FF4922")
                 ]
             })
