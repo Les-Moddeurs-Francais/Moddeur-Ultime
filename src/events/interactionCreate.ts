@@ -2,6 +2,7 @@ import {BotEvent} from "../types";
 import {EmbedBuilder, Events, Interaction, TextChannel} from "discord.js";
 import {SUGGESTION_CHANNEL} from "../utils/id";
 import {rules} from "../utils/rules";
+import {command} from "../slashCommands/rules"
 
 const event: BotEvent = {
     name: Events.InteractionCreate,
@@ -54,9 +55,10 @@ const event: BotEvent = {
         }
 
         if(interaction.isAutocomplete()){
-            if(interaction.commandName == "règles"){
+            if(interaction.commandName == command.name){
                 const focusedValue = interaction.options.getFocused();
-                const filtered = rules.rules.filter(rule => rule.title.toString().includes(focusedValue));
+                const rulesRegex = /Règle \d+/
+                const filtered = rules.rules.filter((rule, index) => rule.title.toString().includes(focusedValue) || (/\d/.test(focusedValue) && index+1 === parseInt(focusedValue)));
                 await interaction.respond(
                     filtered.map(rule => ({ name: "Règle " + getIndexOf(rules.rules, rule.title) + " - " + rule.title, value: getIndexOf(rules.rules, rule.title) })),
                 );
