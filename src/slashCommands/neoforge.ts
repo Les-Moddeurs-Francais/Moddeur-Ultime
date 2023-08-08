@@ -1,5 +1,5 @@
 import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
-import {BotApplicationCommand, ForgeVersions} from "../types";
+import {BotApplicationCommand, NeoForgeVersions} from "../types";
 
 export const command: BotApplicationCommand = {
     name: 'neoforge',
@@ -16,7 +16,7 @@ export const command: BotApplicationCommand = {
         const minecraftVersion = interaction.options.get('version').value as string;
 
         let forgeVersionJson = await fetch(`https://maven.neoforged.net/api/maven/latest/version/releases/net%2Fneoforged%2Fforge?filter=${minecraftVersion}`)
-        let forgeVersion = await forgeVersionJson.json() as ForgeVersions
+        let forgeVersion = await forgeVersionJson.json() as NeoForgeVersions
 
         let latest = forgeVersion.version
 
