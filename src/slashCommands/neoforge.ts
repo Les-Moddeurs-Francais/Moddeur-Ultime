@@ -15,17 +15,17 @@ export const command: BotApplicationCommand = {
     async execute(interaction: ChatInputCommandInteraction) {
         const minecraftVersion = interaction.options.get('version').value as string;
 
-        let forgeVersionJson = await fetch(`https://maven.neoforged.net/api/maven/latest/version/releases/net%2Fneoforged%2Fforge?filter=${minecraftVersion}`)
-        let forgeVersion = await forgeVersionJson.json() as NeoForgeVersions
+        let neoForgeVersionJson = await fetch(`https://maven.neoforged.net/api/maven/latest/version/releases/net%2Fneoforged%2Fforge?filter=${minecraftVersion}`)
+        let neoForgeVersion = await neoForgeVersionJson.json() as NeoForgeVersions
 
-        let latest = forgeVersion.version
+        let latestVersion = neoForgeVersion.version
 
-        if(latest){
+        if(latestVersion){
             let resultEmbed = new EmbedBuilder()
                 .setTitle(`Versions de NeoForge pour la ${minecraftVersion}`)
                 .setColor("#15ff67")
 
-            resultEmbed.addFields({name: `Version la plus récente`, value: `\`${minecraftVersion} - ${latest}\``, inline:false})
+            resultEmbed.addFields({name: `Version la plus récente`, value: `\`${minecraftVersion} - ${latestVersion}\``, inline:false})
 
             await interaction.reply({
                 embeds: [resultEmbed]
