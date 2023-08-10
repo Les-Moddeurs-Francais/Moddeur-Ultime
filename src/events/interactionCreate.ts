@@ -57,7 +57,6 @@ const event: BotEvent = {
         if(interaction.isAutocomplete()){
             if(interaction.commandName == command.name){
                 const focusedValue = interaction.options.getFocused();
-                const rulesRegex = /Règle \d+/
                 const filtered = rules.rules.filter((rule, index) => rule.title.toString().includes(focusedValue) || (/\d/.test(focusedValue) && index+1 === parseInt(focusedValue)));
                 await interaction.respond(
                     filtered.map(rule => ({ name: "Règle " + getIndexOf(rules.rules, rule.title) + " - " + rule.title, value: getIndexOf(rules.rules, rule.title) })),

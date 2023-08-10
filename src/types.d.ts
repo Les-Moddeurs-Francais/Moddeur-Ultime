@@ -33,7 +33,7 @@ declare module "discord.js" {
     }
 }
 
-export interface ForgeVersions {
+export interface NeoForgeVersions {
     isSnapshot: boolean;
     version: string;
 }
