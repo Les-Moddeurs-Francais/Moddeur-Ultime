@@ -55,4 +55,7 @@ export interface ModrinthModVersion {
 export type AlgoliaHit = {
     url: string;
     version: string;
+    hierarchy: {
+        lvl1: string;
+    };
 };
