@@ -1,7 +1,7 @@
-import { Client, EmbedBuilder, Events, TextChannel } from "discord.js";
-import { BotEvent } from "../types";
-import { GUILD_ID, RULES_MESSAGE } from "../utils/id";
-import { rules } from "../utils/rules";
+import {Client, EmbedBuilder, Events, ForumChannel, TextChannel} from "discord.js";
+import {BotEvent} from "../types";
+import {APPROBATION_RULES_CHANNEL, GUILD_ID, RULES_MESSAGE} from "../utils/id";
+import {rules} from "../utils/rules";
 
 const event: BotEvent = {
     name: Events.ClientReady,
@@ -23,6 +23,17 @@ const event: BotEvent = {
                 if((rulesEmbed.toJSON().title !== message.embeds[0].title) || (rulesEmbed.toJSON().description !== message.embeds[0].description) || (JSON.stringify(rulesEmbed.toJSON().fields) !== JSON.stringify(message.embeds[0].fields)))
                     message.edit({content: "", embeds: [rulesEmbed]});
             });
+
+        const channelIds = ["1050427271133012049", "1019644671976296488", "1030059794637266964"]
+        const channelNames = ["Neo Forge 1.20.x", "Forge 1.19.x", "Forge 1.18.x"]
+
+        for(let i = 0; i < channelIds.length; i++){
+            const forumChannel = client.channels.cache.get(channelIds[i]) as ForumChannel;
+            const notifChannel = client.channels.cache.get(APPROBATION_RULES_CHANNEL) as TextChannel;
+            const tagId = forumChannel.availableTags.find(tag => tag.name === "Résolu").id
+
+            notifChannel.send(`${channelNames[i]} : ${tagId}`)
+        }
     },
 }
 
