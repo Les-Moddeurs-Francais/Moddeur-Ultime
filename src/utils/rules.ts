@@ -1,6 +1,5 @@
 let rules = {
     title: ":scroll: Règlement du serveur **Les Moddeurs Francais**",
-    description: "Règles à respecter scrupuleusement.",
     rules: [
         {
             title: "Spam",

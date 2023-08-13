@@ -1,7 +1,7 @@
-import { Client, EmbedBuilder, Events, TextChannel } from "discord.js";
-import { BotEvent } from "../types";
-import { GUILD_ID, RULES_MESSAGE } from "../utils/id";
-import { rules } from "../utils/rules";
+import {Client, EmbedBuilder, Events} from "discord.js";
+import {BotEvent} from "../types";
+import {GUILD_ID, RULES_MESSAGE} from "../utils/id";
+import {rules} from "../utils/rules";
 
 const event: BotEvent = {
     name: Events.ClientReady,
@@ -11,7 +11,6 @@ const event: BotEvent = {
 
         let rulesEmbed = new EmbedBuilder()
             .setTitle(rules.title)
-            .setDescription(rules.description)
             .setColor("#15ff67");
 
         for (let i = 0; i < rules.rules.length; i++){
