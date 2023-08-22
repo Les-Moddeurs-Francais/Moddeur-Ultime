@@ -1,7 +1,7 @@
 {
   "name": "moddeur-ultime",
   "version": "1.0.0",
-  "description": "",
+  "description": "Discord bot of server, Les Moddeurs Francais.",
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
@@ -11,12 +11,12 @@
   "author": "Les-Moddeurs-Francais",
   "license": " GPL-3.0-only",
   "dependencies": {
-    "@types/node": "^18.15.11",
-    "algoliasearch": "^4.17.0",
+    "@types/node": "^20.4.9",
+    "algoliasearch": "^4.19.1",
     "discord.js": "^14.12.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.6"
   }
 }
