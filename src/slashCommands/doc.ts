@@ -1,7 +1,6 @@
 import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js"
 import {AlgoliaHit, BotApplicationCommand} from "../types";
 import algoliasearch from "algoliasearch";
-import parser from "html-metadata-parser";
 
 export const command: BotApplicationCommand = {
     name: 'doc',
@@ -42,7 +41,8 @@ export const command: BotApplicationCommand = {
             ],
             attributesToRetrieve: [
                 'version',
-                'url'
+                'url',
+                'hierarchy'
             ]
         }).then(async ({hits}) => {
 
@@ -70,11 +70,9 @@ export const command: BotApplicationCommand = {
                         .setColor("#15ff67");
 
                     for (let i = 0; i < pages.length; i++){
-                        let properties = await parser(pages[i].url)
-
                         let pageVersion = pages[i].version[0] === 'current' ? `${versionL}.x` : pages[i].version[0]
 
-                        resultEmbed.addFields({name: `[${pageVersion}] ${properties.og.title.replace("| Documentation Forge", "")}`, value: `${pages[i].url}`, inline: false})
+                        resultEmbed.addFields({name: `[${pageVersion}] ${pages[i].hierarchy.lvl1}`, value: `${pages[i].url}`, inline: false})
                     }
 
                     await interaction.reply({
