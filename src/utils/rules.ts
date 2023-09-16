@@ -10,6 +10,10 @@ let rules = {
             text:"Respecter les sujets associés aux tchat ! En effet, les salons textuels et vocaux sont présents et répartis de sorte à organiser les sujets de discussion. Cela permet de fluidifier les messages et d'éviter d'avoir un gros pavé de messages sans aucun rapport."
         },
         {
+            title: "Versions pour le support",
+            text: "Veillez à respecter l'étendue des versions pour obtenir du support. Si par exemple, aucun salon ne porte le nom de **forge-1.12.x**, c'est que nous considérons cette version obsolète."
+        },
+        {
             title: "Spam des roles et mention des admins",
             text:"Ne pas spammer les **Les Moddeurs Français** ni les **Dev Master** **et encore moins mentionner <@188763699778027521> ou <@569959711164727306> :rage: !** Si vous avez une question, posez la dans les tchat et un membre du staff ou de la communauté vous répondra avec un peu de patience."
         },
