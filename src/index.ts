@@ -1,10 +1,7 @@
-import * as dotenv from 'dotenv';
 import {Client, Collection, GatewayIntentBits, Partials} from 'discord.js';
 import {join} from 'path';
 import {readdirSync} from 'fs';
 import {BotApplicationCommand} from "./types";
-
-dotenv.config();
 
 const client = new Client({
   intents: [
