@@ -4,8 +4,8 @@
   "description": "Discord bot of server, Les Moddeurs Francais.",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "tsc && node dist/index.js",
+    "start": "node --env-file=prod.env dist/index.js",
+    "dev": "tsc && node --env-file=dev.env dist/index.js",
     "build": "tsc"
   },
   "author": "Les-Moddeurs-Francais",
@@ -13,8 +13,7 @@
   "dependencies": {
     "@types/node": "^20.5.9",
     "algoliasearch": "^4.19.1",
-    "discord.js": "^14.13.0",
-    "dotenv": "^16.3.1"
+    "discord.js": "^14.13.0"
   },
   "devDependencies": {
     "typescript": "^5.2.2"
