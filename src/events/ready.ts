@@ -8,6 +8,8 @@ const event: BotEvent = {
     execute(client: Client) {
         console.log((`💪 Logged in as ${client.user?.tag}`))
 
+        client.user.setActivity();
+
         let rulesEmbed = new EmbedBuilder()
             .setTitle(rules.title)
             .setColor("#15ff67");
