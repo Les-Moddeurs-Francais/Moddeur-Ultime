@@ -1,5 +1,6 @@
 import {BotEvent} from "../types";
 import {EmbedBuilder, Events, Interaction, TextChannel} from "discord.js";
+import {SUGGESTION_CHANNEL} from "../utils/id";
 import {rules} from "../utils/rules";
 import {command} from "../slashCommands/rules"
 
@@ -29,7 +30,7 @@ const event: BotEvent = {
 
                 const userName = interaction.user.displayName
                 const userAvatarUrl = interaction.user.displayAvatarURL()
-                const suggestionChannel = interaction.client.channels.cache.get(process.env.SUGGESTION_CHANNEL) as TextChannel;
+                const suggestionChannel = interaction.client.channels.cache.get(SUGGESTION_CHANNEL) as TextChannel;
                 const suggestionTitle = interaction.fields.getTextInputValue("suggestion_title");
                 const suggestionDescription = interaction.fields.getTextInputValue("suggestion_description");
                 const embed = new EmbedBuilder()

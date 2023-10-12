@@ -1,6 +1,7 @@
 import {BotEvent} from "../types";
 import {EmbedBuilder, Events, Message, TextChannel} from "discord.js";
 import {rules} from "../utils/rules";
+import {REPORT_PING_CHANNEL} from "../utils/id";
 
 const event: BotEvent = {
     name: Events.MessageCreate,
@@ -9,7 +10,7 @@ const event: BotEvent = {
 
         if((message.mentions.users.find(user => user.id === '569959711164727306') || message.mentions.users.find(user => user.id === '188763699778027521')) && !message.author.bot && !message.member.roles.cache.find(r => r.name === 'Dev Master' || r.name === 'Modérateur')){
 
-            const reportMentionChannel = message.client.channels.cache.get(process.env.REPORT_PING_CHANNEL) as TextChannel;
+            const reportMentionChannel = message.client.channels.cache.get(REPORT_PING_CHANNEL) as TextChannel;
             const rulesEmbed = new EmbedBuilder()
                 .setColor("#15ff67")
                 .setTitle(`Règle 3 - ` + rules.rules[2].title)
