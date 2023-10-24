@@ -6,7 +6,7 @@ We are open to all contributions whether they are code or bug reports ^^.
 
 ## Installation
 
-1. Ensure you have [NodeJS](https://nodejs.org) installed (preferred version `20.6.1`).
+1. Ensure you have [NodeJS](https://nodejs.org) installed (preferred version `21.0.0`).
 2. After cloning the repository, run `npm install` in the root of the repository. This will install all dependencies as well as build all local packages.
 3. To start the bot, run `npm run dev` (after setup of the `.env` file in the [next section](#files)).
 
